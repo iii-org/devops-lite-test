@@ -50,7 +50,8 @@ gitlab-runner:
 # 自簽
 certmanager:
   install: false
-
+registry:
+  enabled: false
 
 
 
