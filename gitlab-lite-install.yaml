@@ -1,0 +1,57 @@
+global:
+  edition: ce
+  hosts:
+    domain: 10.20.0.74.xip.io
+    https: true
+    gitlab:
+      name: gitlab.10.20.0.74.xip.io
+      https: true
+  ## doc/charts/globals.md#configure-ingress-settings
+  ingress:
+    configureCertmanager: false
+    annotations: {}
+    enabled: true
+    tls: 
+       enabled: true
+       secretName: gitalb-tls
+  ## Rails generic setting, applicable to all Rails-based containers
+  rails:
+    bootsnap: # Enable / disable Shopify/Bootsnap cache
+      enabled: false
+  ## doc/charts/globals.md#configure-gitaly-settings
+  gitaly:
+    enabled: true
+  ## doc/charts/globals.md#configure-minio-settings
+  minio:
+    enabled: true
+  ## doc/charts/globals.md#configure-appconfig-settings
+  ## Rails based portions of this chart share many settings
+  appConfig:
+    ## doc/charts/globals.md#general-application-settings
+    enableUsagePing: false
+    enableSeatLink: false
+    defaultCanCreateGroup: false
+    defaultProjectsFeatures:
+      issues: false
+      mergeRequests: true
+      wiki: false
+      snippets: false
+      builds: false
+    artifacts:
+      enabled: false
+upgradeCheck:
+  enabled: false
+prometheus:
+  install: false
+redis:
+  install: true
+gitlab-runner:
+  install: false
+# 自簽
+certmanager:
+  install: false
+
+
+
+
+    
