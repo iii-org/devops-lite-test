@@ -5,7 +5,11 @@
 * `helm repo add gitlab https://charts.gitlab.io/`
 * `helm repo update`
 * `helm install -n gitlab gitlab gitlab/gitlab -f ./gitlab-lite-install.yaml`
-#* `helm get values gitlab > gitlab.yaml`
+* `helm get values gitlab > gitlab.yaml`
 
-# check install condition
+## check install condition
 * `kubectl get pod -n gitlab`
+
+# harbor
+* `helm repo add harbor https://helm.goharbor.io`
+* `helm install -n harbor harbor harbor/harbor -f ./harbor-lite-install.yaml`
