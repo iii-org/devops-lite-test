@@ -12,4 +12,5 @@
 
 # harbor
 * `helm repo add harbor https://helm.goharbor.io`
+* `kubectl create ns harbor`
 * `helm install -n harbor harbor harbor/harbor -f ./harbor-lite-install.yaml`
