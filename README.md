@@ -1,6 +1,9 @@
 # devops-lite-test
 測試小型專案部屬 ( 關閉安全性驗證、production與效能提升相關組件)
 
+## 前安裝
+* `snap install helm --classic`
+
 # gitlab
 * `helm repo add gitlab https://charts.gitlab.io/`
 * `helm repo update`
