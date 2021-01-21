@@ -1,0 +1,21 @@
+#ingress:
+#  enabled: true
+#  hosts: 
+#    - host: "sonar.10.20.0.67.xip.io"
+service:
+  type: NodePort
+persistence:
+  enabled: true
+  accessMode: ReadWriteOnce
+  storageClass: iiidevops-nfs-storage
+  size: 8Gi
+installPlugins:
+  enabled: false
+psql:
+  host: share-postgresql
+  port: 5432
+  username: iiidevops
+  database: sonarqube  
+  password:
+    secret: share-postgresql
+    key: postgresql-password

@@ -15,9 +15,21 @@
 ## 共享安裝版本
 
 # 共享資料庫與Redis
+[helm-charts](helm repo add cetic https://cetic.github.io/helm-charts)
 [helm/bitnami/postgresql](https://artifacthub.io/packages/helm/bitnami/postgresql)  
+[helm/bitnami/redis](https://artifacthub.io/packages/helm/bitnami/redis)  
+[stevehipwell.github.io/helm-charts/](helm repo add stevehipwell https://stevehipwell.github.io/helm-charts/)
 * `helm repo add bitnami https://charts.bitnami.com/bitnami`
+* `helm repo add bitnami https://charts.bitnami.com/bitnami`
+* `helm repo add cetic https://cetic.github.io/helm-charts`
+* `helm repo add stevehipwell https://stevehipwell.github.io/helm-charts/`
 * `helm install -n devops share-postgresql bitnami/postgresql -f ./share-postgresql-install.yaml`
+* `helm install -n devops share-redis bitnami/redis -f ./share-redis-install.yaml`
+* `helm install -n devops db-gui cetic/adminer`
+備註: 需新增`clair`與`registry資料庫`
+* `helm install -n devops devops-harbor harbor/harbor -f ./share-harbor-lite-install.yaml`
+備註: 需新增`sonarqube`
+* `helm install -n devops -f ./share-sonarqube-install.yaml devops-sonarqube stevehipwell/sonarqube`
 
 ## 獨立安裝版本
 
@@ -25,7 +37,6 @@
 * `helm repo add gitlab https://charts.gitlab.io/`
 * `helm repo update`
 * `helm install -n gitlab gitlab gitlab/gitlab -f ./gitlab-lite-install.yaml`
-* `helm get values gitlab > gitlab.yaml`
 
 ## check install condition
 * `kubectl get pod -n gitlab`
