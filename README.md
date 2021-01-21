@@ -37,6 +37,7 @@
 備註: 需新增`sonarqube`
 * `helm install -n devops -f ./share-sonarqube-install.yaml devops-sonarqube stevehipwell/sonarqube`
 * `helm install -n devops devops-redmine bitnami/redmine -f ./share-redmine-install.yaml`
+* `helm install -n devops devops-gitlab gitlab/gitlab -f ./share-gitlab-lite-install.yaml`
 
 ## 獨立安裝版本
 
