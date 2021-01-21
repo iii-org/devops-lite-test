@@ -8,21 +8,27 @@
 4. redis保留與資料庫獨立為確保系統運作上的順暢穩定(不會因為一段時間的使用後效能逐漸下降)
 5. 下面範例storage採用NFS機制，因此建議有一個獨立的NFS伺服器來源做使用
 
+## chart套件清單
+[helm-charts](helm repo add cetic https://cetic.github.io/helm-charts)
+[helm/bitnami/postgresql](https://artifacthub.io/packages/helm/bitnami/postgresql)
+[helm/bitnami/redis](https://artifacthub.io/packages/helm/bitnami/redis)
+[stevehipwell.github.io/helm-charts/](helm repo add stevehipwell https://stevehipwell.github.io/helm-charts/)  
+[/bitnami/redmine](https://artifacthub.io/packages/helm/bitnami/redmine)
+
+## 匯入chart套件清單
+* `helm repo add bitnami https://charts.bitnami.com/bitnami`
+* `helm repo add bitnami https://charts.bitnami.com/bitnami`
+* `helm repo add cetic https://cetic.github.io/helm-charts`
+* `helm repo add stevehipwell https://stevehipwell.github.io/helm-charts/`
+* `helm repo add bitnami https://charts.bitnami.com/bitnami`
+
 ## 前安裝
 * `snap install helm --classic`
 * `kubectl create ns devops`
 
 ## 共享安裝版本
 
-# 共享資料庫與Redis
-[helm-charts](helm repo add cetic https://cetic.github.io/helm-charts)
-[helm/bitnami/postgresql](https://artifacthub.io/packages/helm/bitnami/postgresql)  
-[helm/bitnami/redis](https://artifacthub.io/packages/helm/bitnami/redis)  
-[stevehipwell.github.io/helm-charts/](helm repo add stevehipwell https://stevehipwell.github.io/helm-charts/)
-* `helm repo add bitnami https://charts.bitnami.com/bitnami`
-* `helm repo add bitnami https://charts.bitnami.com/bitnami`
-* `helm repo add cetic https://cetic.github.io/helm-charts`
-* `helm repo add stevehipwell https://stevehipwell.github.io/helm-charts/`
+### 共享資料庫與Redis
 * `helm install -n devops share-postgresql bitnami/postgresql -f ./share-postgresql-install.yaml`
 * `helm install -n devops share-redis bitnami/redis -f ./share-redis-install.yaml`
 * `helm install -n devops db-gui cetic/adminer`
@@ -30,6 +36,7 @@
 * `helm install -n devops devops-harbor harbor/harbor -f ./share-harbor-lite-install.yaml`
 備註: 需新增`sonarqube`
 * `helm install -n devops -f ./share-sonarqube-install.yaml devops-sonarqube stevehipwell/sonarqube`
+* `helm install -n devops devops-redmine bitnami/redmine -f ./share-redmine-install.yaml`
 
 ## 獨立安裝版本
 
