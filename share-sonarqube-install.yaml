@@ -11,6 +11,9 @@ persistence:
   size: 8Gi
 installPlugins:
   enabled: false
+postgresql:
+  enabled: false
+  existingSecret: 
 psql:
   host: share-postgresql
   port: 5432
