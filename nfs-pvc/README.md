@@ -12,7 +12,12 @@
 7. `kubectl apply -f ./iiidevops-nfs-storage-storageclass.yaml`
 
 #### 驗證安裝
-`kubectl `
+> `kubectl get storageclass`  
+```
+localadmin@iiidevops-67:~/devops-lite-test/nfs-pvc$ kubectl get storageclass
+NAME                              PROVISIONER                 RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
+iiidevops-nfs-storage (default)   iiidevops-nfs-provisioner   Delete          Immediate           false                  114s
+```
 
 #### 參考連結(僅供參考)
 * [NFS或iSCSI哪個更好](https://www.itread01.com/content/1549403289.html)
