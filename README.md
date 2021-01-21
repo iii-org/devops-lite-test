@@ -10,8 +10,18 @@
 
 ## 前安裝
 * `snap install helm --classic`
+* `kubectl create ns devops`
 
-# gitlab
+## 共享安裝版本
+
+# 共享資料庫與Redis
+[helm/bitnami/postgresql](https://artifacthub.io/packages/helm/bitnami/postgresql)  
+* `helm repo add bitnami https://charts.bitnami.com/bitnami`
+* `helm install -n devops share-postgresql bitnami/postgresql -f ./share-postgresql-install.yaml`
+
+## 獨立安裝版本
+
+### gitlab (獨立安裝)
 * `helm repo add gitlab https://charts.gitlab.io/`
 * `helm repo update`
 * `helm install -n gitlab gitlab gitlab/gitlab -f ./gitlab-lite-install.yaml`
@@ -20,7 +30,7 @@
 ## check install condition
 * `kubectl get pod -n gitlab`
 
-# harbor
+### harbor (獨立安裝版本)
 * `helm repo add harbor https://helm.goharbor.io`
 * `kubectl create ns harbor`
 * `helm install -n harbor harbor harbor/harbor -f ./harbor-lite-install.yaml`
