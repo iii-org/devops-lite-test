@@ -4,6 +4,8 @@ mailReceiver:
   enabled: false
 volumePermissions:
   enabled: false
+mariadb:
+  enabled: false
 databaseType: "postgresql"
 externalDatabase:
   host: share-postgresql
